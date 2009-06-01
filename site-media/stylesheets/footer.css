@@ -1,0 +1,9 @@
+#footer {
+	clear: both;
+	margin-top: 1em;
+	padding-bottom: 6em;
+}
+
+#footer p {
+	font-size: 0.75em;
+}

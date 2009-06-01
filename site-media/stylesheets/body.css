@@ -1,0 +1,10 @@
+body {
+	/*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+	font-family: Verdana, Tahoma, Arial;
+	font-size: 14px;
+	line-height: 1.125em;
+	background: rgb(138, 168, 171);
+	color: rgb(30, 40, 30);
+	min-width: 1064px;
+}
+

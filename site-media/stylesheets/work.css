@@ -1,0 +1,66 @@
+/* PROJECTS LIST */
+
+.projects-list {
+    background: url(/site-media/images/mask-black-25.png) repeat-x;
+    margin-bottom: 1em;
+}
+
+.projects-list .images-list {
+    list-style-type: none;
+    float: left;
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgb(225, 225, 225);
+}
+
+.projects-list .images-list .images-list-empty { float:left; width:600px; height:400px; }
+.projects-list .images-list img { display: block; }
+.projects-list .images-list li  { display: none; }
+.projects-list .images-list li.current { display: block; }
+
+.projects-list li.project {
+    padding: 1.5em 16px 1.5em 0;
+    background: url(/site-media/images/mask-black-25.png) 0 100% repeat-x;
+    overflow: hidden;
+    position: relative;
+}
+
+.projects-list .details {
+    width: 312px;
+    float: right;
+}
+
+.projects-list .title {
+    margin-left: 0;
+    margin-top: 0;
+    color: rgb(48, 80, 144);
+}
+
+.projects-list .date {
+    font-size: 0.75em;
+    color: rgb(109, 116, 109);
+    margin-bottom: 1em;
+}
+
+.projects-list .description {
+    font-size: 0.75em;
+    margin-top: 1em;
+    position: absolute;
+    bottom: 4.5em;
+}
+
+.projects-list .url {
+    font-size: 1em;
+    margin-top: 1em;
+    position: absolute;
+    bottom: 1.5em;
+}
+.projects-list .url { color: rgb(48, 80, 144); }
+
+.error-div { width: 600px; height: 400px; }
+.error-header { font-size: 72pt; padding-top: 40px; margin-top: 40px; padding-bottom: 40px; margin-bottom: 40px; }
+
+#flatpage-content { width: 600px; height: 400px; }
+#flatpage-content p { padding: 10px 0px 10px 0px; }
