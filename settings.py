@@ -1,4 +1,5 @@
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
+import os.path
 
 import database
 DATABASE_ENGINE = database.DATABASE_ENGINE
@@ -20,6 +21,7 @@ MANAGERS = ADMINS
 
 # Base directory.
 BASE_DIR = deploy.BASE_DIR
+PROJECT_ROOT = os.path.dirname(__file__)
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -38,7 +40,9 @@ SITE_ID = 1
 # to load the internationalization machinery.
 USE_I18N = True
 
-import os.path
+THEME = "miner"
+
+THEME_DIR = os.path.join(PROJECT_ROOT, "themes", THEME)
 
 # MEDIA_URL: URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -46,7 +50,8 @@ import os.path
 # MEDIA_ROOT: Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_URL = '/site-media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'site-media/').replace('\\','/')
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'site-media/').replace('\\','/')
+MEDIA_ROOT = os.path.realpath(os.path.join(THEME_DIR, "site-media"))
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -73,7 +78,8 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'portfolio.urls'
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates/'),
+    #os.path.join(BASE_DIR, 'templates/'),
+    os.path.join(PROJECT_ROOT, "themes", THEME, "templates"),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS += (
@@ -94,4 +100,3 @@ INSTALLED_APPS = (
 )
 
 SERVE_MEDIA = True
-
