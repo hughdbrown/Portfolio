@@ -1,0 +1,42 @@
+{% extends "base_work.html" %}
+
+{% block title %}Work{% endblock %}
+
+{% block content %}
+<div id="work" class="section">
+    <ul class="projects-list">
+        {% for project in object_list %}
+            {% with project.imagelist_set.all as images %}
+            <li class="project">
+                <ul class="images-list">
+                {% ifnotequal images.count 0 %}
+                    {% for image in images %}
+                        {%if forloop.first %}<li class="current">{% else %}<li>{% endif %}
+                        <img src="/site-media/{{ image.image }}"></li>
+                    {% endfor %}
+                {% else %}
+                    <li class="images-list-empty"></li>
+                {% endifnotequal %}
+                </ul>
+                
+                <div class="details">
+                    <p class="date">
+                    {% if project.completion_date %}Completed {{ project.completion_date|date:"F Y" }}{% else %}Under development{% endif %}
+                    </p>
+                    <h2 class="title">{{ project.name }}</h2>
+                    {% ifnotequal images.count 0 %}
+                        <ul class="button-list">
+                            <li><a class="button prev" href="#"></a></li>
+                            <li><a class="button next" href="#"></a></li>
+                        </ul>
+                    {% endifnotequal %}
+
+                    <p class="description">{{ project.description }}</p>
+                    <p class="url"><a href="{{ project.project_url }}">View work</a></p>
+                </div>
+            </li>
+            {% endwith %}
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

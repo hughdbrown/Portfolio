@@ -1,0 +1,22 @@
+.button {
+	float: left;
+	margin-right: 8px;
+	width: 23px;
+	height: 23px;
+	overflow: hidden;
+	opacity: .25;
+	filter:alpha(opacity=25);
+}
+
+.button:hover{ opacity: .5; filter:alpha(opacity=50); }
+.button.next { background: url(../images/arrow-right.png) no-repeat; }
+.button.prev { background: url(../images/arrow-left.png) no-repeat; }
+
+.button-list {
+	overflow: hidden;
+}
+
+.button-list li {
+	list-style-type: none;
+	display: inline;
+}
