@@ -92,3 +92,6 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'portfolio.work',
 )
+
+SERVE_MEDIA = True
+

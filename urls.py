@@ -16,7 +16,7 @@ urlpatterns += patterns('portfolio.work.views',
     url(r'^$',                    'project_list',   name="project_list"),
 )
 
-if settings.DEBUG:
+if settings.SERVE_MEDIA:
     urlpatterns += patterns('',
         url(r'^site-media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
         url(r'^media/(?P<path>.*)$',      'django.views.static.serve', {'document_root': settings.ADMIN_MEDIA_ROOT}),
