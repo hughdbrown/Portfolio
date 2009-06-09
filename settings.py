@@ -1,5 +1,5 @@
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
-import os.path
+from os.path import *
 
 import database
 DATABASE_ENGINE = database.DATABASE_ENGINE
@@ -9,8 +9,7 @@ DATABASE_PASSWORD = database.DATABASE_PASSWORD
 DATABASE_HOST = database.DATABASE_HOST
 DATABASE_PORT = database.DATABASE_PORT
 
-import deploy
-DEBUG = deploy.DEBUG
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -18,10 +17,6 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
-
-# Base directory.
-BASE_DIR = deploy.BASE_DIR
-PROJECT_ROOT = os.path.dirname(__file__)
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -40,24 +35,19 @@ SITE_ID = 1
 # to load the internationalization machinery.
 USE_I18N = True
 
+import django
+DJANGO_ROOT = django.__path__
+PROJECT_ROOT = dirname(__file__)
+
 THEME = "miner"
+THEME_DIR = realpath(join(PROJECT_ROOT, "themes", THEME))
 
-THEME_DIR = os.path.join(PROJECT_ROOT, "themes", THEME)
-
-# MEDIA_URL: URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash if there is a path component (optional in other cases).
-# Examples: "http://media.lawrence.com", "http://example.com/media/"
-# MEDIA_ROOT: Absolute path to the directory that holds media.
-# Example: "/home/media/media.lawrence.com/"
 MEDIA_URL = '/site-media/'
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'site-media/').replace('\\','/')
-MEDIA_ROOT = os.path.realpath(os.path.join(THEME_DIR, "site-media"))
+MEDIA_ROOT = realpath(join(THEME_DIR, "site-media"))
 
-# URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
-# trailing slash.
-# Examples: "http://foo.com/media/", "/media/".
 ADMIN_MEDIA_PREFIX = '/media/'
-ADMIN_MEDIA_ROOT = deploy.ADMIN_MEDIA_ROOT
+# Make sure it ends in a trailing slash!
+ADMIN_MEDIA_ROOT = join(DJANGO_ROOT, "contrib/admin/media/")
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = ')gmkmexf%6plg%85fzm6z@et#=9id=qz@y89+h^6g^ag33mt!l'
@@ -78,8 +68,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'portfolio.urls'
 
 TEMPLATE_DIRS = (
-    #os.path.join(BASE_DIR, 'templates/'),
-    os.path.join(PROJECT_ROOT, "themes", THEME, "templates"),
+    join(THEME_DIR, "templates"),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS += (
