@@ -21,4 +21,3 @@ if settings.SERVE_MEDIA:
         url(r'^site-media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
         url(r'^media/(?P<path>.*)$',      'django.views.static.serve', {'document_root': settings.ADMIN_MEDIA_ROOT}),
     )
-
