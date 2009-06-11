@@ -1,0 +1,8 @@
+.button-list {
+	overflow: hidden;
+}
+
+.button-list li {
+	list-style-type: none;
+	display: inline;
+}

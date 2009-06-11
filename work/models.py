@@ -9,6 +9,7 @@ class Project(models.Model):
 	def __unicode__(self):
 		return u"Project %s" % self.name
 
+	@models.permalink
 	def get_absolute_url(self):
 		return self.project_url
 
@@ -21,5 +22,6 @@ class ImageList(models.Model):
 	def __unicode__(self):
 		return u"Image %d" % self.id
 
+	@models.permalink
 	def get_absolute_url(self):
 		return "storage/images/%d" % self.id
