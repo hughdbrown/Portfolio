@@ -1,14 +1,6 @@
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 import os.path
 
-import database
-DATABASE_ENGINE = database.DATABASE_ENGINE
-DATABASE_NAME = database.DATABASE_NAME
-DATABASE_USER = database.DATABASE_USER
-DATABASE_PASSWORD = database.DATABASE_PASSWORD
-DATABASE_HOST = database.DATABASE_HOST
-DATABASE_PORT = database.DATABASE_PORT
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -88,3 +80,8 @@ INSTALLED_APPS = (
 )
 
 SERVE_MEDIA = True
+
+try:
+    from local_settings import *
+except ImportError:
+    pass

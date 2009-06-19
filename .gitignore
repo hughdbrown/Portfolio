@@ -1,3 +1,4 @@
 *.pyc
 *.kpf
 .gitignore
+local_settings.py
