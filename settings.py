@@ -3,6 +3,7 @@ import os.path
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+SERVE_MEDIA = True
 
 ADMINS = (
     ('Hugh Brown', 'hughdbrown@yahoo.com'),
@@ -31,7 +32,8 @@ import django
 DJANGO_ROOT = django.__path__[0]
 PROJECT_ROOT = os.path.dirname(__file__)
 
-THEME = "miner"
+#THEME = "miner"
+THEME = "notheme"
 THEME_DIR = os.path.join(PROJECT_ROOT, "themes", THEME)
 
 MEDIA_URL = '/site-media/'
@@ -79,9 +81,14 @@ INSTALLED_APPS = (
     'portfolio.work',
 )
 
-SERVE_MEDIA = True
-
 try:
     from local_settings import *
 except ImportError:
-    pass
+    print "Missing %s" % os.path.join(PROJECT_ROOT, "local_settings.py")
+
+if DEBUG:
+    paths = [PROJECT_ROOT, MEDIA_ROOT, THEME_DIR, ADMIN_MEDIA_ROOT] + list(TEMPLATE_DIRS)
+    for p in paths:
+        p = os.path.normpath(p)
+        if not os.path.exists(p):
+            print "Missing path: %s" % p

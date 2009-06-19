@@ -1,0 +1,16 @@
+{% extends "base_work.html" %}
+
+{% block title %}Work{% endblock title %}
+
+{% block content %}
+{% for project in object_list %}
+	{% with project.imagelist_set.all as images %}
+	{% for image in images %}
+		<img src="/site-media/{{ image.image }}" />
+	{% endfor %}
+	{% endwith %}
+	{% if project.completion_date %}Completed {{ project.completion_date|date:"F Y" }}{% else %}Under development{% endif %}
+	<p>{{ project.description }}</p>
+	<p><a href="{{ project.project_url }}">View work</a></p>
+{% endfor %}
+{% endblock content %}
