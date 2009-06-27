@@ -32,8 +32,8 @@ import django
 DJANGO_ROOT = django.__path__[0]
 PROJECT_ROOT = os.path.dirname(__file__)
 
-#THEME = "miner"
-THEME = "notheme"
+THEME = "miner"
+#THEME = "notheme"
 THEME_DIR = os.path.join(PROJECT_ROOT, "themes", THEME)
 
 MEDIA_URL = '/site-media/'
@@ -52,6 +52,7 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.gzip.GZipMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
