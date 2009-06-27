@@ -6,3 +6,6 @@ DATABASE_HOST = ''             # Set to empty string for localhost. Not used wit
 DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
 
 DEBUG = True
+
+CACHE_MIDDLEWARE_SECONDS=3600*24*30
+CACHE_BACKEND = 'dummy:///'
