@@ -12,7 +12,7 @@
                 {% ifnotequal images.count 0 %}
                     {% for image in images %}
                         {%if forloop.first %}<li class="current">{% else %}<li>{% endif %}
-                        <img src="/site-media/{{ image.image }}"></li>
+                        <img src="{{ MEDIA_ROOT }}/{{ image.image }}"></li>
                     {% endfor %}
                 {% else %}
                     <li class="images-list-empty"></li>
