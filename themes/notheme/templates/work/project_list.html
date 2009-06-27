@@ -6,7 +6,7 @@
 {% for project in object_list %}
 	{% with project.imagelist_set.all as images %}
 	{% for image in images %}
-		<img src="{{ MEDIA_ROOT }}/{{ image.image }}" />
+		<img src="{{ MEDIA_URL }}{{ image.image }}" />
 	{% endfor %}
 	{% endwith %}
 	{% if project.completion_date %}Completed {{ project.completion_date|date:"F Y" }}{% else %}Under development{% endif %}

@@ -8,7 +8,6 @@ handler404 = 'portfolio.work.views.page_not_found'
 handler500 = 'portfolio.work.views.server_error'
 
 urlpatterns = patterns('',
-    #url(r'^admin/(.*)',     admin.site.root),
     url(r'^admin/',         include(admin.site.urls)),
 )
 
@@ -18,7 +17,8 @@ urlpatterns += patterns('portfolio.work.views',
 )
 
 if settings.SERVE_MEDIA:
+    media_url_regex = r'^%s(?P<path>.*)$' % settings.MEDIA_URL[1:]
     urlpatterns += patterns('',
-        url(r'^site-media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+        url(media_url_regex, 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
         url(r'^media/(?P<path>.*)$',      'django.views.static.serve', {'document_root': settings.ADMIN_MEDIA_ROOT}),
     )

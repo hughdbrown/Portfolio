@@ -36,7 +36,7 @@ THEME = "miner"
 #THEME = "notheme"
 THEME_DIR = os.path.join(PROJECT_ROOT, "themes", THEME)
 
-MEDIA_URL = '/site-media/'
+MEDIA_URL =  "/themes/%s/site-media/" % THEME
 MEDIA_ROOT = os.path.realpath(os.path.join(THEME_DIR, "site-media/"))
 
 ADMIN_MEDIA_PREFIX = '/media/'

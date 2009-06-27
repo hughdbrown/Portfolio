@@ -117,7 +117,7 @@ a:hover {
 /* PROJECTS LIST */
 
 .projects-list {
-    background: url(/site-media/images/mask-black-25.png) repeat-x;
+    background: url(../images/mask-black-25.png) repeat-x;
     margin-bottom: 1em;
 }
 
@@ -138,7 +138,7 @@ a:hover {
 
 .projects-list li.project {
     padding: 1.5em 16px 1.5em 0;
-    background: url(/site-media/images/mask-black-25.png) 0 100% repeat-x;
+    background: url(../images/mask-black-25.png) 0 100% repeat-x;
     overflow: hidden;
     position: relative;
 }

@@ -14,7 +14,7 @@ from portfolio.work.models import Project, ImageList
 def project_list(request) :
 	projects = Project.objects.all().order_by('-completion_date')
 	template_name = 'work/project_list.html'
-	d = { 'object_list': projects, "MEDIA_URL": settings.MEDIA_URL }
+	d = { 'object_list': projects }
 	return render_to_response(template_name, d, context_instance=RequestContext(request))
 
 def project_detail(request, object_id):
@@ -24,10 +24,10 @@ def project_detail(request, object_id):
 
 def page_not_found(request, template_name='404.html') :
 	t = loader.get_template(template_name) # You need to create a 404.html template.
-	c = Context({ "MEDIA_URL": settings.MEDIA_URL })
+	c = Context()
 	return HttpResponseNotFound(t.render(c))
 
 def server_error(request, template_name='500.html'):
 	t = loader.get_template(template_name) # You need to create a 500.html template.
-	c = Context({ "MEDIA_URL": settings.MEDIA_URL })
+	c = Context()
 	return HttpResponseServerError(t.render(c))
